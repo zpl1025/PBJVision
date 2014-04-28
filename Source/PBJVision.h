@@ -116,6 +116,7 @@ extern NSString * const PBJVisionVideoThumbnailKey;
 @property (nonatomic) PBJCameraMode cameraMode;
 @property (nonatomic) PBJCameraDevice cameraDevice;
 - (BOOL)isCameraDeviceAvailable:(PBJCameraDevice)cameraDevice;
+- (BOOL)isCurrentCameraDeviceSupportFlash; // zpl
 
 @property (nonatomic) PBJFlashMode flashMode; // flash and torch
 @property (nonatomic, readonly, getter=isFlashAvailable) BOOL flashAvailable;
@@ -140,6 +141,7 @@ extern NSString * const PBJVisionVideoThumbnailKey;
 - (void)startPreview;
 - (void)stopPreview;
 
+- (void)freezePreview; // zpl
 - (void)unfreezePreview; // preview is automatically timed and frozen with photo capture
 
 // focus, exposure, white balance

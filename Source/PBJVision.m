@@ -386,6 +386,12 @@ typedef NS_ENUM(GLint, PBJVisionUniformLocationTypes)
     return [UIImagePickerController isCameraDeviceAvailable:(UIImagePickerControllerCameraDevice)cameraDevice];
 }
 
+/* zpl add */
+-(BOOL)isCurrentCameraDeviceSupportFlash
+{
+    return [_currentDevice hasFlash];
+}
+
 - (BOOL)isFocusPointOfInterestSupported
 {
     return [_currentDevice isFocusPointOfInterestSupported];
@@ -1149,6 +1155,13 @@ typedef void (^PBJVisionBlock)();
         DLog(@"capture session stopped");
         _flags.previewRunning = NO;
     }];
+}
+
+/* zpl add */
+- (void)freezePreview
+{
+    if (_previewLayer)
+        _previewLayer.connection.enabled = NO;
 }
 
 - (void)unfreezePreview
